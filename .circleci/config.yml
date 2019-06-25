@@ -20,7 +20,7 @@ commands:
             - node_modules
 
 jobs:
-  wakabox:
+  musicbox:
     <<: *defaults
     steps:
       - install
