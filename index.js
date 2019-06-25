@@ -53,6 +53,11 @@ async function main() {
         "name": "",
         "plays": ""
     }
+    
+    var artist5 = {
+        "name": "",
+        "plays": ""
+    }
 
     artist1.name = json.topartists.artist[0].name
     artist1.plays = json.topartists.artist[0].playcount
@@ -66,6 +71,9 @@ async function main() {
     artist4.name = json.topartists.artist[3].name
     artist4.plays = json.topartists.artist[3].playcount
 
+    artist5.name = json.topartists.artist[4].name
+    artist5.plays = json.topartists.artist[4].playcount
+    
     // used for debugging
     // console.log(artist1.name, `-`, artist1.plays)
     // console.log(artist2.name, `-`, artist2.plays)
@@ -97,8 +105,14 @@ async function main() {
         generateBarChart(artist4.plays * 2, 31),
         String(artist4.plays).padStart(6) + " plays"
     ];
+    
+    const artist5line = [
+        artist5.name.padEnd(15),
+        generateBarChart(artist5.plays * 2, 31),
+        String(artist5.plays).padStart(6) + " plays"
+    ];
 
-    lines.push(artist1line.join(" "), artist2line.join(" "), artist3line.join(" "), artist4line.join(" "));
+    lines.push(artist1line.join(" "), artist2line.join(" "), artist3line.join(" "), artist4line.join(" "), artist5line.join(" "));
 
     console.log(lines)
 
