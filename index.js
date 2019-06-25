@@ -3,9 +3,10 @@ const Octokit = require("@octokit/rest");
 const fetch = require("node-fetch");
 
 const {
-    GIST_ID: gistID,
+    GIST_ID: gistId,
     GITHUB_TOKEN: githubToken,
-    LASTFM_KEY: lfmAPI
+    LASTFM_KEY: lfmAPI,
+    USERNAME: user
 } = process.env
 
 
@@ -15,10 +16,12 @@ const octokit = new Octokit({
 
 async function main() {
 
-    const username = ''
-    const gistID = ''
+    const username = user
+    const gistID = gistId;
+    const lfm = lfmAPI;
 
-    const API = `http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${username}&api_key=${LASTFM_KEY}&format=json&period=7day`
+    if(!lfm || !username || !gistID || !githubToken) throw new Error('Please check your environment variables, as you are missing one.')
+    const API = `http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${username}&api_key=${lfm}&format=json&period=7day`
 
     const data = await fetch(API);
     const json = await data.json();
@@ -73,25 +76,25 @@ async function main() {
 
     const artist1line = [
         artist1.name.padEnd(15),
-        generateBarChart(artist1.plays, 31),
+        generateBarChart(artist1.plays * 2, 31),
         String(artist1.plays).padStart(6) + " plays"
     ];
 
     const artist2line = [
         artist2.name.padEnd(15),
-        generateBarChart(artist2.plays, 31),
+        generateBarChart(artist2.plays * 2, 31),
         String(artist2.plays).padStart(6) + " plays"
     ];
 
     const artist3line = [
         artist3.name.padEnd(15),
-        generateBarChart(artist3.plays, 31),
+        generateBarChart(artist3.plays * 2, 31),
         String(artist3.plays).padStart(6) + " plays"
     ];
 
     const artist4line = [
         artist4.name.padEnd(15),
-        generateBarChart(artist4.plays, 31),
+        generateBarChart(artist4.plays * 2, 31),
         String(artist4.plays).padStart(6) + " plays"
     ];
 
