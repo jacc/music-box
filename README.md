@@ -6,7 +6,7 @@
 
 ---
 
-### Inspiration
+## Inspiration
 This code was heavily inspired by [@JohnPhamous's strava-box](https://github.com/JohnPhamous/strava-box).
 
-### Prep Work
+## Prep Work
