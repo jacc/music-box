@@ -6,7 +6,7 @@ const {
     GIST_ID: gistId,
     GITHUB_TOKEN: githubToken,
     LASTFM_KEY: lfmAPI,
-    USERNAME: user
+    LFMUSERNAME: user
 } = process.env
 
 
