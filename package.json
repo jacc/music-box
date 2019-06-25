@@ -1,0 +1,25 @@
+{
+  "name": "music-box",
+  "version": "1.0.0",
+  "description": "See your weekly top artists in a GitHub gist.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacc/music-box.git"
+  },
+  "author": "Jack LaFond",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jacc/music-box/issues"
+  },
+  "homepage": "https://github.com/jacc/music-box#readme",
+  "dependencies": {
+    "@octokit/rest": "^16.28.2",
+    "dotenv": "^8.0.0",
+    "gist-box": "^0.3.0",
+    "octokit": "^1.0.0-hello-world"
+  }
+}
