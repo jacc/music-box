@@ -20,7 +20,7 @@ async function main() {
     const gistID = gistId;
     const lfm = lfmAPI;
 
-    if(!lfm || !username || !gistID || !githubToken) throw new Error('Please check your environment variables, as you are missing one.')
+    if (!lfm || !username || !gistID || !githubToken) throw new Error('Please check your environment variables, as you are missing one.')
     const API = `http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${username}&api_key=${lfm}&format=json&period=7day`
 
     const data = await fetch(API);
@@ -28,7 +28,9 @@ async function main() {
 
     let gist;
     try {
-      gist = await octokit.gists.get({ gist_id: gistID });
+        gist = await octokit.gists.get({
+            gist_id: gistID
+        });
     } catch (error) {
         console.error(`music-box ran into an issue getting your Gist:\n${error}`);
     }
@@ -53,7 +55,7 @@ async function main() {
         "name": "",
         "plays": ""
     }
-    
+
     var artist5 = {
         "name": "",
         "plays": ""
@@ -73,12 +75,6 @@ async function main() {
 
     artist5.name = json.topartists.artist[4].name
     artist5.plays = json.topartists.artist[4].playcount
-    
-    // used for debugging
-    // console.log(artist1.name, `-`, artist1.plays)
-    // console.log(artist2.name, `-`, artist2.plays)
-    // console.log(artist3.name, `-`, artist3.plays)
-    // console.log(artist4.name, `-`, artist4.plays)
 
     const lines = [];
 
@@ -105,7 +101,7 @@ async function main() {
         generateBarChart(artist4.plays, 31).substring(0, 27),
         String(artist4.plays).padStart(6) + " plays"
     ];
-    
+
     const artist5line = [
         artist5.name.substring(0, 13).padEnd(15),
         generateBarChart(artist5.plays, 31).substring(0, 27),
@@ -120,17 +116,17 @@ async function main() {
         // Get original filename to update that same file
         const filename = Object.keys(gist.data.files)[0];
         await octokit.gists.update({
-          gist_id: gistID,
-          files: {
-            [filename]: {
-              filename: `🎵 My last week in music`,
-              content: lines.join("\n")
+            gist_id: gistID,
+            files: {
+                [filename]: {
+                    filename: `🎵 My last week in music`,
+                    content: lines.join("\n")
+                }
             }
-          }
         });
-      } catch (error) {
+    } catch (error) {
         console.error(`Unable to update gist\n${error}`);
-      }
+    }
 }
 
 function generateBarChart(percent, size) {
@@ -143,7 +139,9 @@ function generateBarChart(percent, size) {
 async function updateGist() {
     let gist;
     try {
-        gist = await octokit.gists.get({ gist_id: gistID })
+        gist = await octokit.gists.get({
+            gist_id: gistID
+        })
     } catch (error) {
         console.error(`music-box ran into an issue:\n${error}`);
     }
@@ -151,4 +149,4 @@ async function updateGist() {
 
 (async () => {
     await main();
-  })();
+})();
