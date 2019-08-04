@@ -1,6 +1,6 @@
 {
   "name": "music-box",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "See your weekly top artists in a GitHub gist.",
   "main": "index.js",
   "scripts": {

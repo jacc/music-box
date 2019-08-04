@@ -35,7 +35,6 @@ async function main() {
         console.error(`music-box ran into an issue getting your Gist:\n${error}`);
     }
 
-
     var artist1 = {
         "name": "",
         "plays": ""
