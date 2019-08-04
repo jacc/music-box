@@ -84,31 +84,31 @@ async function main() {
 
     const artist1line = [
         artist1.name.substring(0, 13).padEnd(15),
-        generateBarChart(artist1.plays * 2, 31),
+        generateBarChart(artist1.plays, 31).substring(0, 27),
         String(artist1.plays).padStart(6) + " plays"
     ];
 
     const artist2line = [
         artist2.name.substring(0, 13).padEnd(15),
-        generateBarChart(artist2.plays * 2, 31),
+        generateBarChart(artist2.plays, 31).substring(0, 27),
         String(artist2.plays).padStart(6) + " plays"
     ];
 
     const artist3line = [
         artist3.name.substring(0, 13).padEnd(15),
-        generateBarChart(artist3.plays * 2, 31),
+        generateBarChart(artist3.plays, 31).substring(0, 27),
         String(artist3.plays).padStart(6) + " plays"
     ];
 
     const artist4line = [
         artist4.name.substring(0, 13).padEnd(15),
-        generateBarChart(artist4.plays * 2, 31),
+        generateBarChart(artist4.plays, 31).substring(0, 27),
         String(artist4.plays).padStart(6) + " plays"
     ];
     
     const artist5line = [
         artist5.name.substring(0, 13).padEnd(15),
-        generateBarChart(artist5.plays * 2, 31),
+        generateBarChart(artist5.plays, 31).substring(0, 27),
         String(artist5.plays).padStart(6) + " plays"
     ];
 
