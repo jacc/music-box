@@ -35,81 +35,21 @@ async function main() {
         console.error(`music-box ran into an issue getting your Gist:\n${error}`);
     }
 
-    var artist1 = {
-        "name": "",
-        "plays": ""
-    }
-
-    var artist2 = {
-        "name": "",
-        "plays": ""
-    }
-
-    var artist3 = {
-        "name": "",
-        "plays": ""
-    }
-
-    var artist4 = {
-        "name": "",
-        "plays": ""
-    }
-
-    var artist5 = {
-        "name": "",
-        "plays": ""
-    }
-
-    artist1.name = json.topartists.artist[0].name
-    artist1.plays = json.topartists.artist[0].playcount
-
-    artist2.name = json.topartists.artist[1].name
-    artist2.plays = json.topartists.artist[1].playcount
-
-    artist3.name = json.topartists.artist[2].name
-    artist3.plays = json.topartists.artist[2].playcount
-
-    artist4.name = json.topartists.artist[3].name
-    artist4.plays = json.topartists.artist[3].playcount
-
-    artist5.name = json.topartists.artist[4].name
-    artist5.plays = json.topartists.artist[4].playcount
-
     const lines = [];
+    
+    for(let i = 0; i < 5; i++) {
+        const name =  json.topartists.artist[i].name;
+        const plays = json.topartists.artist[i].playcount;
 
-    const artist1line = [
-        artist1.name.substring(0, 13).padEnd(15),
-        generateBarChart(artist1.plays, 31).substring(0, 27),
-        String(artist1.plays).padStart(6) + " plays"
-    ];
-
-    const artist2line = [
-        artist2.name.substring(0, 13).padEnd(15),
-        generateBarChart(artist2.plays, 31).substring(0, 27),
-        String(artist2.plays).padStart(6) + " plays"
-    ];
-
-    const artist3line = [
-        artist3.name.substring(0, 13).padEnd(15),
-        generateBarChart(artist3.plays, 31).substring(0, 27),
-        String(artist3.plays).padStart(6) + " plays"
-    ];
-
-    const artist4line = [
-        artist4.name.substring(0, 13).padEnd(15),
-        generateBarChart(artist4.plays, 31).substring(0, 27),
-        String(artist4.plays).padStart(6) + " plays"
-    ];
-
-    const artist5line = [
-        artist5.name.substring(0, 13).padEnd(15),
-        generateBarChart(artist5.plays, 31).substring(0, 27),
-        String(artist5.plays).padStart(6) + " plays"
-    ];
-
-    lines.push(artist1line.join(" "), artist2line.join(" "), artist3line.join(" "), artist4line.join(" "), artist5line.join(" "));
-
-    console.log(lines)
+        lines.push(
+            [
+                name.substring(0,13).padEnd(15),
+                generateBarChart(plays, 31).substring(0, 27),
+                `${plays.padStart(6)} plays`,
+             ].join(' ')
+        );
+        
+    }
 
     try {
         // Get original filename to update that same file
