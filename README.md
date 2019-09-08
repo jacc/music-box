@@ -7,16 +7,16 @@
 ---
 > 📌✨ For more pinned-gist projects like this one, check out: https://github.com/matchai/awesome-pinned-gists
 
-## Inspiration
+## ✨ Inspiration
 This code was heavily inspired by [@JohnPhamous's strava-box](https://github.com/JohnPhamous/strava-box).
 
-## Prep Work
+## 🎒 Prep Work
 1. Create a new public GitHub Gist (https://gist.github.com/)
 1. Create a token with the `gist` scope and copy it. (https://github.com/settings/tokens/new)
 1. Create a Last.fm Application (https://www.last.fm/api/account/create)
 1. Copy the `API token`.
 
-## Project Setup
+## 🖥 Project Setup
 1. Fork this repo
 1. Log into CircleCI with your GitHub (https://circleci.com/vcs-authorize/)
 1. Click on "Add Projects" on the sidebar
@@ -28,3 +28,7 @@ This code was heavily inspired by [@JohnPhamous's strava-box](https://github.com
 - **GITHUB_TOKEN:** The GitHub token generated above.
 - **LASTFM_KEY:** The API key you got from creating a Last.fm API account.
 - **LFMUSERNAME:** Your Last.fm username.
+
+## 💸 Donations
+
+Feel free to use the GitHub Sponsor button to donate towards my work if you're feeling generous <3
