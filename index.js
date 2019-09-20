@@ -35,8 +35,12 @@ async function main() {
         console.error(`music-box ran into an issue getting your Gist:\n${error}`);
     }
 
+    playsTotal = 0;
+    for(let i = 0; i < 5; i++) {
+        playsTotal = playsTotal + json.topartists.artist[i].playcount;
+    }
+
     const lines = [];
-    
     for(let i = 0; i < 5; i++) {
         const name =  json.topartists.artist[i].name;
         const plays = json.topartists.artist[i].playcount;
@@ -44,11 +48,10 @@ async function main() {
         lines.push(
             [
                 name.substring(0,23).padEnd(25),
-                generateBarChart(plays, 21).substring(0, 17),
+                generateBarChart(plays * 100.0 / playsTotal, 17),
                 `${plays.padStart(6)} plays`,
              ].join(' ')
         );
-        
     }
 
     try {
