@@ -43,8 +43,8 @@ async function main() {
 
         lines.push(
             [
-                name.substring(0,13).padEnd(15),
-                generateBarChart(plays, 31).substring(0, 27),
+                name.substring(0,23).padEnd(25),
+                generateBarChart(plays, 21).substring(0, 17),
                 `${plays.padStart(6)} plays`,
              ].join(' ')
         );
