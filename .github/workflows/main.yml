@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
+#       - uses: actions/checkout@v1
       - uses: jacc/music-box@master
         env:
           LASTFM_KEY: ${{ secrets.LASTFM_KEY }}
