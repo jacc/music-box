@@ -13,6 +13,6 @@ jobs:
       - uses: jacc/music-box@master
         env:
           LASTFM_KEY: ${{ secrets.LASTFM_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           LFMUSERNAME: j9ck
           GIST_ID: 9797a6cd48baae6f45ce0b3a0147a09b
