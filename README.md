@@ -18,12 +18,29 @@ This code was heavily inspired by [@JohnPhamous's strava-box](https://github.com
 
 ## 🖥 Project Setup
 1. Fork this repo
-1. Log into CircleCI with your GitHub (https://circleci.com/vcs-authorize/)
-1. Click on "Add Projects" on the sidebar
-1. Set up a project with the newly created fork
-1. Go to Project Settings > Environment Variables
-1. Add the following environment variables:
+1. Create a `.github/workflows/music-box.yml` file like this:
+```yml
+name: music-box
 
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: jacc/music-box@master
+        env:
+          LASTFM_KEY: ${{ secrets.LASTFM_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LFMUSERNAME: <Last.fm username>
+          GIST_ID: <GitHub Gist ID>
+```
+
+## 🤫 Environment Secrets
 - **GIST_ID:** The ID portion from your gist url `https://gist.github.com/<github username>/`**`6d5f84419863089a167387da62dd7081`**.
 - **GITHUB_TOKEN:** The GitHub token generated above.
 - **LASTFM_KEY:** The API key you got from creating a Last.fm API account.
