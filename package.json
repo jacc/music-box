@@ -19,6 +19,7 @@
   "dependencies": {
     "@octokit/rest": "^16.28.2",
     "dotenv": "^8.0.0",
+    "eastasianwidth": "^0.2.0",
     "gist-box": "^0.3.0",
     "octokit": "^1.0.0-hello-world"
   }
