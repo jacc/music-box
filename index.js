@@ -53,12 +53,13 @@ async function main() {
       name = name.substring(0, i);
     }
     // pad short strings
-    name = name.padEnd(26 - name.length + eaw.length(name))
+    name = name.padEnd(26 + name.length - eaw.length(name));
 
     lines.push([
       name,
       generateBarChart(plays * 100 / playsTotal, 17),
-      `${plays.padStart(5)} plays`
+      `${plays}`.padStart(5),
+      'plays'
     ].join(' '));
   }
 
