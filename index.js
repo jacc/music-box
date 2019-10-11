@@ -1,7 +1,7 @@
 require('dotenv').config();
 const Octokit = require("@octokit/rest");
 const fetch = require("node-fetch");
-var eaw = require('eastasianwidth');
+const eaw = require('eastasianwidth');
 
 const {
   GIST_ID: gistId,
