@@ -1,6 +1,7 @@
 require('dotenv').config();
 const Octokit = require("@octokit/rest");
 const fetch = require("node-fetch");
+const eaw = require('eastasianwidth');
 
 const {
   GIST_ID: gistId,
@@ -44,13 +45,21 @@ async function main() {
 
   const lines = [];
   for(let i = 0; i < numArtitst; i++) {
-    const name =  json.topartists.artist[i].name;
     const plays = json.topartists.artist[i].playcount;
+    let name =  json.topartists.artist[i].name.substring(0, 25);
+    // trim off long widechars
+    for(let i = 24; i >= 0; i--) {
+      if(eaw.length(name) <= 26) break;
+      name = name.substring(0, i);
+    }
+    // pad short strings
+    name = name.padEnd(26 + name.length - eaw.length(name));
 
     lines.push([
-      name.substring(0,25).padEnd(26),
+      name,
       generateBarChart(plays * 100 / playsTotal, 17),
-      `${plays.padStart(5)} plays`
+      `${plays}`.padStart(5),
+      'plays'
     ].join(' '));
   }
 
