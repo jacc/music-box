@@ -1,0 +1,16 @@
+name: Updates music-box
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+jobs:
+  update:
+   runs-on: ubuntu-latest
+   steps:
+     - uses: actions/checkout@master
+     - name: Updates gist
+       uses: jacc/music-box@master
+       env:
+        LASTFM_KEY: ${{ secrets.LASTFM_KEY }}
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        LFMUSERNAME: j9ck
+        GIST_ID: 9797a6cd48baae6f45ce0b3a0147a09b
