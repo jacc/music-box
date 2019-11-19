@@ -1,4 +1,13 @@
-test.js
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Dependencies
 node_modules/
-node_modules/*node_modules/
-*.DS_Store/
+
+# Unconfigured Editors
+.vscode/
+.idea
+
+# Dev
+test.js
