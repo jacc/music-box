@@ -83,16 +83,17 @@ async function main() {
 function generateBarChart(percent, size) {
   const syms = "░▏▎▍▌▋▊▉█";
 
-  const frac = size * 8 * percent / 100;
+  const frac = Math.floor((size * 8 * percent) / 100);
   const barsFull = Math.floor(frac / 8);
+  if (barsFull >= size) {
+    return syms.substring(8, 9).repeat(size);
+  }
   const semi = frac % 8;
-  const barsEmpty = size - barsFull - 1;
 
   return [
-    syms.substring(8,9).repeat(barsFull),
-    syms.substring(semi,semi+1),
-    syms.substring(0,1).repeat(barsEmpty),
-  ].join('');
+    syms.substring(8, 9).repeat(barsFull),
+    syms.substring(semi, semi + 1),
+  ].join("").padEnd(size, syms.substring(0, 1));
 }
 
 async function updateGist() {
