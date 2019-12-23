@@ -18,26 +18,25 @@ This code was heavily inspired by [@JohnPhamous's strava-box](https://github.com
 
 ## 🖥 Project Setup
 1. Fork this repo
-1. Create a `.github/workflows/music-box.yml` file like this:
+1. Create a `.github/workflows/schedule.yml` file like this:
 ```yml
-name: music-box
-
+name: Update gist with Last.fm Playlist
 on:
   schedule:
     - cron: '*/10 * * * *'
-
 jobs:
-  build:
+  update-gist:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v1
-      - uses: jacc/music-box@master
+      - uses: actions/checkout@master
+      - name: Update gist
+        uses: jacc/music-box@master
         env:
-          LASTFM_KEY: ${{ secrets.LASTFM_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          LFMUSERNAME: <Last.fm username>
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GIST_ID: <GitHub Gist ID>
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          LASTFM_KEY: ${{ secrets.LASTFM_KEY }}
+          LFMUSERNAME: <Last.fm username>
 ```
 
 ## 🤫 Environment Secrets
