@@ -1,17 +1,17 @@
-name: Updates music-box
+name: Update gist with Last.fm Playlist
 on:
   schedule:
     - cron: '*/10 * * * *'
-  push:
-    branches: master
 jobs:
-  update:
-   runs-on: ubuntu-latest
-   steps:
-     - name: Update
-       uses: jacc/music-box@master
-       env:
-          LASTFM_KEY: ${{ secrets.LASTFM_KEY }}
+  update-gist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Update gist
+        uses: jacc/music-box@master
+        env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          LFMUSERNAME: j9ck
           GIST_ID: 9797a6cd48baae6f45ce0b3a0147a09b
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          LASTFM_KEY: ${{ secrets.LASTFM_KEY }}
+          LFMUSERNAME: j9ck
