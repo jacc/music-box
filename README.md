@@ -1,4 +1,4 @@
-<p align='center'> 
+<p align='center'>
   <img src="https://github.com/jacc/music-box/blob/master/branding/musicbox-preview.png">
   <h3 align="center">music-box</h3>
   <p align="center">Update a gist to contain your weekly plays on Last.fm</p>
@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: jacc/music-box@master
         env:
           LASTFM_KEY: ${{ secrets.LASTFM_KEY }}
