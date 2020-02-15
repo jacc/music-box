@@ -10,9 +10,9 @@ jobs:
    steps:
      - uses: actions/checkout@v2
      - name: Update
-       uses: jacc/music-box@master
+       uses: jacc/music-box@master  # or ./ for current repo
        env:
           LASTFM_KEY: ${{ secrets.LASTFM_KEY }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          LFMUSERNAME: j9ck
-          GIST_ID: 9797a6cd48baae6f45ce0b3a0147a09b
+          LFMUSERNAME: ${{ secrets.LFMUSERNAME }}
+          GIST_ID: ${{ secrets.GIST_ID }}
