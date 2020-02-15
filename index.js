@@ -5,7 +5,7 @@ const eaw = require('eastasianwidth');
 
 const {
   GIST_ID: gistId,
-  GITHUB_TOKEN: githubToken,
+  GH_TOKEN: githubToken,
   LASTFM_KEY: lfmAPI,
   LFMUSERNAME: user
 } = process.env

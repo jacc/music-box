@@ -22,7 +22,7 @@ This code was heavily inspired by [@JohnPhamous's strava-box](https://github.com
 
 ## 🤫 Environment Secrets
 - **GIST_ID:** The ID portion from your gist url `https://gist.github.com/<github username>/`**`6d5f84419863089a167387da62dd7081`**.
-- **GITHUB_TOKEN:** The GitHub token generated above.
+- **GH_TOKEN:** The GitHub token generated above.
 - **LASTFM_KEY:** The API key you got from creating a Last.fm API account.
 - **LFMUSERNAME:** Your Last.fm username.
 
