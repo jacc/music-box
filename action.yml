@@ -1,0 +1,20 @@
+name: music-box
+author: Jack LaFond & Casper da Costa-Luis
+description: GitHub Action for injecting last week's listening report from last.fm into a gist
+
+# using env: instead for now to match circleci
+# inputs:
+#   LASTFM_KEY:
+#     required: true
+#     description: "last.fm key"
+#   GH_TOKEN:
+#   LFMUSERNAME:
+#   GIST_ID:
+
+runs:
+  using: node12
+  main: ./index.js
+
+branding:
+  icon: music
+  color: red
