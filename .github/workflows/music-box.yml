@@ -11,7 +11,7 @@ jobs:
      - uses: actions/checkout@v2
      - run: npm install
      - name: Update
-       uses: jacc/music-box@master  # or ./ for current repo
+       uses: ./
        env:
           LASTFM_KEY: ${{ secrets.LASTFM_KEY }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
