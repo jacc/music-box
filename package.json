@@ -1,26 +1,23 @@
 {
   "name": "music-box",
-  "version": "1.1.0",
-  "description": "See your weekly top artists in a GitHub gist.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jacc/music-box.git"
-  },
+  "version": "1.0.0",
+  "description": "Get your last weeks listening report from last.fm in a GitHub Gist.",
+  "main": "dist/index.js",
+  "repository": "https://github.com/jacc/music-box",
   "author": "Jack LaFond",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jacc/music-box/issues"
+  "scripts": {
+    "dev": "tsc && concurrently \"tsc -w\" \"nodemon dist/index.js\""
   },
-  "homepage": "https://github.com/jacc/music-box#readme",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4"
+  },
   "dependencies": {
-    "@octokit/rest": "^16.32.0",
-    "dotenv": "^8.1.0",
-    "eastasianwidth": "^0.2.0",
-    "gist-box": "^0.3.0",
-    "octokit": "^1.0.0-hello-world"
+    "@octokit/rest": "^18.0.0",
+    "@types/node-fetch": "^2.5.7",
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.0",
+    "typescript": "^3.9.5"
   }
 }
